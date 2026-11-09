@@ -1,0 +1,572 @@
+/* Hoja de estilo genérica para todas las páginas */
+
+/* Importación de fuente personalizada */
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../FONTS/Ponomar-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animar-inicio {
+    animation: fadeIn 1.5s ease-out;
+}
+
+
+/* Estilos generales */
+
+.slider-container {
+    margin-top: 60px;
+    display: flex; 
+    align-items: center; 
+    height: 50vh;
+    margin-bottom: 50px;
+  }
+  
+  .slider-box {
+    width: 70%;
+    max-width: 600px;
+    overflow: hidden;
+  }
+  
+  .slider-box ul {
+      display: flex;
+      padding: 0;
+      width: 300%;
+      animation: slide 10s infinite alternate ease-in-out;
+  }
+  
+  .slider-box li {
+      width: 100%;
+      list-style: none;
+      position: relative;
+  }
+  
+  .slider-box img {
+      width: 100%; 
+      height: auto;
+      border-radius: 25px;
+  }
+  
+  @keyframes slide {
+      0%, 20% {
+          margin-left: 0;
+      }
+  
+      25%, 45% {
+          margin-left: -100%;
+      }
+  
+      50%, 70% {
+          margin-left: -200%;
+      }
+  }
+  
+  @media (max-width: 991px) {
+      body {
+          padding: 30px;
+      }
+  
+      .slider-box {
+          width: 100%;
+      }
+  }
+
+body {
+    font-family: 'CustomFont';
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #444;
+}
+
+/* Estilo de enlaces */
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* Estilos del menú */
+.navbar {
+    background-color: #222;
+    padding: 10px 20px;
+}
+
+.navbar a {
+    color: white;
+    font-size: 18px;
+}
+
+.navbar a:hover {
+    color: #ffcc00;
+}
+
+/* Animación para el menú */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.navbar {
+    animation: slideDown 1s ease-in-out;
+}
+
+
+/* Estilos de las tarjetas generales */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    border-radius: 10px 10px 0 0;
+}
+
+/* Estilos para el header */
+.navbar-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.8rem;
+    font-weight: bolder;
+    text-shadow: 0px 0px 10px rgb(255, 255, 255);
+    letter-spacing: 2px;
+}
+
+/* Estilos para los eventos */
+.evento {
+    border: 2px solid #464242;
+    border-radius: 20px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.evento:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.evento img {
+    border-radius: 10px;
+    width: 100%;
+}
+
+.evento h3 {
+    color: #d43f00;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.evento p {
+    text-align: center;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Efectos de botones */
+.btn {
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease-in-out;
+}
+
+
+/* Estilos específicos para la página de reservas */
+/* Contenedor de calendario + gráfico */
+@media (min-width: 992px) {
+  #calendar-container {
+    margin-bottom: 0;
+  }
+  #chart {
+    /* asegura que el svg encaje bien */
+    width: 100%;
+    height: 350px;
+  }
+}
+
+/* FullCalendar: día seleccionado */
+.fc-day-selected {
+  background-color: rgba(0, 123, 255, 0.7) !important;
+}
+
+/* Elimina el picker nativo de fecha */
+#reserva-form input[type="date"] {
+  display: none;
+}
+
+/* Ajustes generales de formulario y inputs */
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+input, select, textarea {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 100%;
+}
+
+/* Hover sobre días del calendario */
+.fc-day:hover {
+  background-color: rgba(0, 123, 255, 0.3) !important;
+}
+
+/* Adaptaciones responsivas */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+    .navbar a {
+        font-size: 16px;
+    }
+    .card {
+        margin-bottom: 20px;
+    }
+    #calendar-container {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 22px;
+    }
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .card {
+        width: 100%;
+    }
+}
+
+@media print {
+    body {
+        background-color: white;
+        color: black;
+    }
+    a {
+        text-decoration: underline;
+    }
+    .navbar, .btn {
+        display: none;
+    }
+}
+
+/* Estilos del vídeo */
+.video {
+    border: 5px solid #444;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Borde verde cuando se reproduce */
+.video.playing {
+    border-color: #28a745;
+    box-shadow: 0px 0px 15px rgba(40, 167, 69, 0.7);
+}
+
+/* Borde rojo cuando se pausa */
+.video.paused {
+    border-color: #dc3545;
+    box-shadow: 0px 0px 15px rgba(220, 53, 69, 0.7);
+}
+
+/* Botones personalizados */
+.video-btn {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    border: none;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+/* Botón Play */
+.play {
+    background-image: url('../IMAGENES/play.png');
+}
+
+/* Botón Pause */
+.pause {
+    background-image: url('../IMAGENES/pause.png');
+}
+
+/* Botón Stop */
+.stop {
+    background-image: url('../IMAGENES/stop.png');
+}
+
+/* Botón Avance Rápido */
+.forward {
+    background-image: url('../IMAGENES/forward.png');
+}
+
+/* Botón Pantalla Completa */
+.fullscreen {
+    background-image: url('../IMAGENES/fullscreen.png');
+}
+
+/* Efecto hover en botones */
+.video-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Estilo del slider de volumen */
+.volume-slider {
+    width: 150px;
+    height: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Contenedor del audio */
+.audio-container {
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    margin: auto;
+}
+
+/* Controles de audio */
+audio {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Radio botones */
+/* Contenedor de selección de audio */
+.audio-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Estilos para los labels con nombres largos */
+.audio-selection label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    max-width: 90%; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+
+/* Estilos del estado */
+#status {
+    font-weight: bold;
+    color: #ffcc00;
+}
+
+/* Mapa */
+#footer-map {
+    height: 200px; /* Tamaño del mapa */
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+/* Ajuste general del contenedor */
+.container {
+    margin-top: 20px;
+}
+
+/* Estilos del menú a la izquierda */
+.menu {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    height: 100%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* Contenedor del juego a la derecha */
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Para que ocupe gran parte de la pantalla */
+}
+
+/* Estilos del área de juego (canvas) */
+canvas {
+    background-image: url('../IMAGENES/resturante.png');
+    border-radius: 10px;
+    width: 100%; /* Se ajusta dinámicamente */
+    height: 65vh; /* Se ajusta al alto de la pantalla */
+}
+
+#popupDescuento {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border: 2px solid #333;
+    padding: 20px;
+    z-index: 1000;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+  
+.popup-content p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+  
+.popup-content button {
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+  
+  /* Asegura que ambas columnas estén pegadas arriba sin margen extra */
+.menu {
+    margin-top: 145px;
+    padding-top: 0;
+}
+
+/* sound-box*/
+#sound-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background: #1a1a1a;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+    z-index: 9999;
+    font-family: sans-serif;
+}
+  
+#sound-box .header {
+    background: #222;
+    padding: 8px;
+    cursor: move;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+  
+#sound-box .content {
+    padding: 10px;
+}
+  
+#sound-box canvas {
+    width: 100%;
+    height: 60px;
+    background: #000;
+    margin-top: 10px;
+}
+  
+#sound-box button, #sound-box input[type=range] {
+    width: 100%;
+    margin: 5px 0;
+} 
+  
+#sound-box button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
+#sound-box button:hover {
+    background-color: #444;
+} 
+  
+#sound-box input[type=range] {
+    appearance: none;
+    height: 6px;
+    background: #555;
+    border-radius: 5px;
+    outline: none;
+} 
+  
+#sound-box input[type=range]::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+} 
+  
+#sound-box input[type=range]::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+} 
+
+#main-3D {
+    position: absolute;
+    top: var(--header-height, 100px); /* Ajusta esto según la altura real del header */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    height: calc(100vh - var(--header-height, 100px));
+}

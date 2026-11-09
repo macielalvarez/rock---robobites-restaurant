@@ -1,0 +1,16 @@
+# Configuración del editor
+.vscode/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos temporales
+*.log
+*.tmp
+
+# Variables de entorno
+.env
+.env.*
+VIDEOS/video_index.mp4

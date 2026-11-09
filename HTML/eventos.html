@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rock & RoboBites</title>
+    
+        <!-- Bootstrap y estilos -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../CSS/estilos.css"> <!-- Archivo de estilos externo -->
+    
+        <!-- Leaflet.js (Mapa) -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    </head>
+<body>
+    <!-- Incluir Encabezado -->
+    <div id="header"></div>
+
+    <div id="sound-box"></div>
+    
+    <!-- Contenido Principal -->
+    <main class="container my-4">
+        <h2 class="text-center">Eventos Mediodía</h2>
+        <div class="row">
+            <div class="col-md-4 evento">
+                <img src="../IMAGENES/evento1.jpg" class="img-fluid" alt="Almuerzo Ejecutivo">
+                <h3>Almuerzo Ejecutivo</h3>
+                <p>Incluye menú especial con tres tiempos, bebidas sin alcohol ilimitadas y espacio reservado.</p>
+                <p><strong>Precio:</strong> $20 por persona</p>
+                <p><strong>Aforo:</strong> Mínimo 10 personas, máximo 50.</p>
+            </div>
+            <div class="col-md-4 evento">
+                <img src="../IMAGENES/evento2.jpg" class="img-fluid" alt="Cumpleaños Infantil">
+                <h3>Cumpleaños Infantil</h3>
+                <p>Decoración temática, menú infantil, pastel y entretenimiento con animadores.</p>
+                <p><strong>Precio:</strong> $15 por niño</p>
+                <p><strong>Aforo:</strong> Mínimo 15 niños, máximo 40.</p>
+            </div>
+            <div class="col-md-4 evento">
+                <img src="../IMAGENES/evento3.jpg" class="img-fluid" alt="Brunch Especial">
+                <h3>Brunch Especial</h3>
+                <p>Buffet con opciones dulces y saladas, bebidas calientes y jugos naturales.</p>
+                <p><strong>Precio:</strong> $25 por persona</p>
+                <p><strong>Aforo:</strong> Mínimo 10 personas, máximo 30.</p>
+            </div>
+        </div>
+        
+        <h2 class="text-center mt-5">Eventos Noche</h2>
+        <div class="row">
+            <div class="col-md-4 evento">
+                <img src="../IMAGENES/evento4.jpg" class="img-fluid" alt="Cena Romántica">
+                <h3>Cena Romántica</h3>
+                <p>Menú gourmet de cuatro tiempos, vino incluido, música en vivo y mesa decorada.</p>
+                <p><strong>Precio:</strong> $50 por pareja</p>
+                <p><strong>Aforo:</strong> Mínimo 5 parejas, máximo 20.</p>
+            </div>
+            <div class="col-md-4 evento">
+                <img src="../IMAGENES/evento5.jpg" class="img-fluid" alt="Fiesta Temática">
+                <h3>Fiesta Temática</h3>
+                <p>DJ en vivo, bebidas incluidas, aperitivos y decoración personalizada.</p>
+                <p><strong>Precio:</strong> $35 por persona</p>
+                <p><strong>Aforo:</strong> Mínimo 20 personas, máximo 80.</p>
+            </div>
+            <div class="col-md-4 evento">
+                <img src="../IMAGENES/evento6.jpg" class="img-fluid" alt="Noche de Karaoke">
+                <h3>Noche de Karaoke</h3>
+                <p>Acceso a karaoke con catálogo amplio, bebidas y snacks incluidos.</p>
+                <p><strong>Precio:</strong> $20 por persona</p>
+                <p><strong>Aforo:</strong> Mínimo 10 personas, máximo 50.</p>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Incluir Pie de Página -->
+    <div id="footer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Cargar Encabezado y Pie de Página Dinámicamente -->
+    <script src="../JS/header.js"></script>
+    <script src="../JS/footer.js"></script>
+    <script src="../JS/sound-box.js"></script>
+
+    <!--Script del Mapa -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script src="../JS/scripts-sound-box.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var restaurantCoords = [39.51386065006829, -0.425216139489487];
+
+        var map = L.map('footer-map', {
+            center: restaurantCoords,
+            zoom: 15,
+            scrollWheelZoom: false
+        });
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker(restaurantCoords).addTo(map)
+            .bindPopup("<b>Rock & Robobites</b><br>¡Ven a visitarnos!").openPopup();
+
+        setTimeout(() => { map.invalidateSize(); }, 500); // Asegurar que el mapa se ajuste correctamente
+    });
+    </script>
+</body>
+</html>

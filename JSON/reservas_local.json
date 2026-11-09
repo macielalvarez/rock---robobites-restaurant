@@ -1,0 +1,209 @@
+[
+  {
+    "dia": "lunes",
+    "interior": {
+      "maxMesas": 30,
+      "disponibles": {
+        "manana": 28,
+        "noche": 29
+      },
+      "reservas": {
+        "manana": [
+          { "hora": "13:00", "personas": 2 },
+          { "hora": "14:30", "personas": 4 }
+        ],
+        "noche": [
+          { "hora": "20:00", "personas": 2 }
+        ]
+      }
+    },
+    "terraza": {
+      "maxMesas": 15,
+      "disponibles": {
+        "manana": 14,
+        "noche": 14
+      },
+      "reservas": {
+        "manana": [
+          { "hora": "13:30", "personas": 2 }
+        ],
+        "noche": [
+          { "hora": "19:00", "personas": 2 }
+        ]
+      }
+    }
+  },
+  {
+    "dia": "martes",
+    "interior": {
+      "maxMesas": 30,
+      "disponibles": { "manana": 29, "noche": 29 },
+      "reservas": {
+        "manana": [ { "hora": "13:00", "personas": 2 } ],
+        "noche":  [ { "hora": "21:00", "personas": 6 } ]
+      }
+    },
+    "terraza": {
+      "maxMesas": 15,
+      "disponibles": { "manana": 15, "noche": 14 },
+      "reservas": {
+        "manana": [],
+        "noche":  [ { "hora": "20:00", "personas": 2 } ]
+      }
+    }
+  },
+  {
+    "dia": "miércoles",
+    "interior": {
+      "maxMesas": 30,
+      "disponibles": { "manana": 27, "noche": 29 },
+      "reservas": {
+        "manana": [
+          { "hora": "13:00", "personas": 4 },
+          { "hora": "14:00", "personas": 2 }
+        ],
+        "noche": [ { "hora": "19:30", "personas": 4 } ]
+      }
+    },
+    "terraza": {
+      "maxMesas": 15,
+      "disponibles": { "manana": 14, "noche": 14 },
+      "reservas": {
+        "manana": [ { "hora": "14:00", "personas": 2 } ],
+        "noche":  [ { "hora": "20:30", "personas": 2 } ]
+      }
+    }
+  },
+  {
+    "dia": "jueves",
+    "interior": {
+      "maxMesas": 30,
+      "disponibles": { "manana": 28, "noche": 26 },
+      "reservas": {
+        "manana": [
+          { "hora": "13:30", "personas": 2 },
+          { "hora": "15:00", "personas": 2 }
+        ],
+        "noche": [
+          { "hora": "20:00", "personas": 6 },
+          { "hora": "22:00", "personas": 4 }
+        ]
+      }
+    },
+    "terraza": {
+      "maxMesas": 15,
+      "disponibles": { "manana": 14, "noche": 12 },
+      "reservas": {
+        "manana": [ { "hora": "13:00", "personas": 2 } ],
+        "noche": [
+          { "hora": "19:00", "personas": 2 },
+          { "hora": "21:00", "personas": 2 }
+        ]
+      }
+    }
+  },
+  {
+    "dia": "viernes",
+    "interior": {
+      "maxMesas": 30,
+      "disponibles": { "manana": 20, "noche": 7 },
+      "reservas": {
+        "manana": [
+          { "hora": "13:00", "personas": 2 },
+          { "hora": "13:30", "personas": 2 },
+          { "hora": "14:00", "personas": 4 },
+          { "hora": "14:30", "personas": 4 },
+          { "hora": "15:00", "personas": 2 }
+        ],
+        "noche": [
+          { "hora": "19:00", "personas": 8 },
+          { "hora": "19:30", "personas": 6 },
+          { "hora": "20:00", "personas": 4 },
+          { "hora": "21:00", "personas": 2 },
+          { "hora": "22:00", "personas": 2 },
+          { "hora": "23:00", "personas": 2 },
+          { "hora": "23:30", "personas": 2 }
+        ]
+      }
+    },
+    "terraza": {
+      "maxMesas": 15,
+      "disponibles": { "manana": 12, "noche": 3 },
+      "reservas": {
+        "manana": [
+          { "hora": "13:00", "personas": 2 },
+          { "hora": "14:00", "personas": 2 },
+          { "hora": "15:00", "personas": 2 }
+        ],
+        "noche": [
+          { "hora": "19:00", "personas": 2 },
+          { "hora": "20:00", "personas": 2 },
+          { "hora": "21:00", "personas": 2 },
+          { "hora": "22:00", "personas": 2 },
+          { "hora": "23:00", "personas": 2 }
+        ]
+      }
+    }
+  },
+  {
+    "dia": "sábado",
+    "interior": {
+      "maxMesas": 30,
+      "disponibles": { "manana": 25, "noche": 23 },
+      "reservas": {
+        "manana": [
+          { "hora": "12:00", "personas": 2 },
+          { "hora": "13:00", "personas": 2 },
+          { "hora": "14:00", "personas": 4 },
+          { "hora": "15:00", "personas": 4 },
+          { "hora": "16:00", "personas": 2 }
+        ],
+        "noche": [
+          { "hora": "18:00", "personas": 2 },
+          { "hora": "19:00", "personas": 8 },
+          { "hora": "20:00", "personas": 6 }
+        ]
+      }
+    },
+    "terraza": {
+      "maxMesas": 15,
+      "disponibles": { "manana": 12, "noche": 10 },
+      "reservas": {
+        "manana": [
+          { "hora": "12:00", "personas": 2 },
+          { "hora": "13:00", "personas": 2 }
+        ],
+        "noche": [
+          { "hora": "18:00", "personas": 2 },
+          { "hora": "19:00", "personas": 2 }
+        ]
+      }
+    }
+  },
+  {
+    "dia": "domingo",
+    "interior": {
+      "maxMesas": 30,
+      "disponibles": { "manana": 24, "noche": 28 },
+      "reservas": {
+        "manana": [
+          { "hora": "12:00", "personas": 2 },
+          { "hora": "13:00", "personas": 2 },
+          { "hora": "14:00", "personas": 4 }
+        ],
+        "noche": [ { "hora": "18:00", "personas": 2 } ]
+      }
+    },
+    "terraza": {
+      "maxMesas": 15,
+      "disponibles": { "manana": 13, "noche": 14 },
+      "reservas": {
+        "manana": [
+          { "hora": "12:00", "personas": 2 },
+          { "hora": "13:00", "personas": 2 }
+        ],
+        "noche": [ { "hora": "18:00", "personas": 2 } ]
+      }
+    }
+  }
+]

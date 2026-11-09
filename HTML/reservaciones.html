@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rock & RoboBites – Reservas</title>
+
+    <!-- Bootstrap y FullCalendar -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales/es.js"></script>
+
+    <!-- Leaflet.js (Mapa) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- Tus estilos -->
+    <link rel="stylesheet" href="../CSS/estilos.css">
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="container my-4">
+    <h1 class="text-center mb-4">Reservar una Mesa</h1>
+
+    <div class="row gx-4">
+      <!-- IZQUIERDA: calendario + formulario -->
+      <div class="col-lg-7">
+        <!-- Calendario -->
+        <div id="calendar-container" class="mb-4">
+          <h2 class="h5 text-center">Selecciona una Fecha</h2>
+          <div id="calendar"></div>
+        </div>
+      </div>
+
+      <!-- DERECHA: gráfico -->
+      <div class="col-lg-5">
+        <h2 class="h5 text-center mb-3">Disponibilidad próximos 7 días</h2>
+        <div id="chart" class="mb-4"></div>
+
+        <!-- Formulario -->
+        <form id="reserva-form" class="row g-3">
+          <!-- Campos cliente -->
+          <div class="col-md-4">
+            <label for="nombre" class="form-label">Nombre Completo</label>
+            <input type="text" id="nombre" class="form-control" required>
+          </div>
+          <div class="col-md-4">
+            <label for="email" class="form-label">Correo Electrónico</label>
+            <input type="email" id="email" class="form-control" required>
+          </div>
+          <div class="col-md-4">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="tel" id="telefono" class="form-control" required>
+          </div>
+
+          <!-- Fecha OCULTA (la pone el calendario) -->
+          <input type="hidden" id="fecha" required>
+
+          <!-- Campos reserva -->
+          <div class="col-md-4">
+            <label for="hora" class="form-label">Hora</label>
+            <select id="hora" class="form-select" required></select>
+          </div>
+          <div class="col-md-4">
+            <label for="personas" class="form-label">Nº de personas</label>
+            <input type="number" id="personas" class="form-control" min="1" max="8" required>
+          </div>
+
+          <!-- Ubicación -->
+          <fieldset class="col-12">
+            <legend class="form-label">Ubicación</legend>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="lugar" id="interior" value="interior" checked>
+              <label class="form-check-label" for="interior">Interior</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="lugar" id="terraza" value="terraza">
+              <label class="form-check-label" for="terraza">Terraza</label>
+            </div>
+          </fieldset>
+
+          <div class="col-12 text-end">
+            <button type="submit" class="btn btn-primary">Reservar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales/es.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="../JS/header.js"></script>
+  <script src="../JS/footer.js"></script>
+  <script src="../JS/sound-box.js"></script>
+  <script src="../JS/scripts-sound-box.js"></script>
+
+  <!-- Inicializar calendario en español -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const inputFecha = document.getElementById('fecha');
+      const calendarEl = document.getElementById('calendar');
+      const calendar = new FullCalendar.Calendar(calendarEl, {
+        locale: 'es',
+        initialView: 'dayGridMonth',
+        selectable: true,
+        dateClick: function(info) {
+          // limpiar selección previa
+          document.querySelectorAll('.fc-day').forEach(d => d.classList.remove('fc-day-selected'));
+          info.dayEl.classList.add('fc-day-selected');
+          // guardar fecha ISO en el campo oculto y refrescar horas
+          inputFecha.value = info.dateStr;
+          if (window.refrescaHorasYPax) window.refrescaHorasYPax();
+        }
+      });
+      calendar.render();
+    });
+  </script>
+
+  <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          var restaurantCoords = [39.51386065006829, -0.425216139489487];
+
+          var map = L.map('footer-map', {
+              center: restaurantCoords,
+              zoom: 15,
+              scrollWheelZoom: false
+          });
+
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          }).addTo(map);
+
+          L.marker(restaurantCoords).addTo(map)
+              .bindPopup("<b>Rock & Robobites</b><br>¡Ven a visitarnos!").openPopup();
+
+          setTimeout(() => { map.invalidateSize(); }, 500); // Asegurar que el mapa se ajuste correctamente
+      });
+    </script>
+
+  <!-- D3 y gráfico -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="../JS/grafico.js"></script>
+</body>
+</html>

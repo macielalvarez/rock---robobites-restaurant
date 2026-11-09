@@ -1,0 +1,162 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock & RoboBites</title>  
+
+    <!-- Bootstrap y estilos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/estilos.css"> <!-- Archivo de estilos externo -->
+
+    <!-- Leaflet.js (Mapa) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+
+    <!-- Incluir Encabezado -->
+    <div id="header"></div>
+
+    <div id="sound-box"></div>
+
+    <!-- Contenido Principal -->
+    <main class="container my-4 animar-inicio">
+        <h3 class="text-center my-4">Bienvenidos</h3>
+        <section class="row align-items-center mb-4">
+            <div class="col-md-6">
+                <p>La página web "Rock & RoboBites" está diseñada para un restaurante ficticio que combina la música en vivo con una experiencia gastronómica futurista, donde robots atienden y preparan la comida.
+                    El objetivo del sitio web es ofrecer una experiencia inmersiva a los visitantes, mostrando información sobre el menú, eventos de música en vivo, interacciones con los robots y la posibilidad de reservar mesas de manera online.
+                    Las secciones estarán diseñadas con una estética moderna, combinando colores llamativos y elementos interactivos para captar la atención del usuario.
+                </p>
+            </div>
+            <div class="col-md-6 d-flex justify-content-end">
+                <div class="slider-container">
+                    <div class="slider-box">
+                      <ul>
+                        <li><img src="../IMAGENES/index1.jpg" alt="img"></li>
+                        <li><img src="../IMAGENES/index2.jpg" alt="img2"></li>
+                        <li><img src="../IMAGENES/index3.jpg" alt="img3"></li>
+                      </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <h3 class="text-center my-4">Historia de Nuestro Restaurante</h3>
+        <section class="row align-items-center">
+            <div class="col-md-6">
+                <div class="slider-container">
+                    <div class="slider-box">
+                      <ul>
+                        <li><img src="../IMAGENES/index4.jpg" alt="img"></li>
+                        <li><img src="../IMAGENES/index5.jpg" alt="img2"></li>
+                        <li><img src="../IMAGENES/index6.jpg" alt="img3"></li>
+                      </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <p>Nacimos de la pasión por la tecnología y la cocina. Desde nuestros inicios, nos propusimos ofrecer una experiencia gastronómica diferente, con un servicio automatizado y un ambiente inspirado en el futuro. Hoy en día, Rock & RoboBites es un referente en innovación culinaria y un punto de encuentro para los amantes del rock y la buena comida.</p>
+            </div>
+        </section>
+
+	        <!-- Zona de reproducción de vídeo -->
+        <section class="container my-5 text-center">
+          <h3>Experiencia Multimedia</h3>
+          <div class="video-container">
+              <video id="videoPlayer" class="video" width="80%">
+                  <source src="../VIDEOS/video_index.mp4" type="video/mp4">
+                  Tu navegador no soporta la reproducción de video.
+              </video>
+              <div class="video-controls mt-3">
+                  <button id="play" class="video-btn play"></button>
+                  <button id="pause" class="video-btn pause"></button>
+                  <button id="stop" class="video-btn stop"></button>
+                  <button id="fastForward" class="video-btn forward"></button>
+                  <button id="fullscreen" class="video-btn fullscreen"></button>
+                  <input type="range" id="volume" min="0" max="1" step="0.1" class="volume-slider">
+              </div>
+              <progress id="progressBar" value="0" max="100" class="w-75 mt-2"></progress>
+              <p id="timeInfo">0:00 / 0:00</p>
+          </div>
+        </section>
+
+        <!-- Zona de reproducción de audio -->
+        <section class="container my-5 text-center">
+          <h3>Reproductor de Audio</h3>
+
+          <div class="audio-container">
+            <p>Elige uno de estos ficheros para reproducir:</p>
+
+            <div class="audio-selection">
+              <label>
+                  <input type="radio" name="audioSelect" value="../AUDIO/audio1.mp3" checked>
+                  Back to the 80s
+              </label>
+  
+              <label>
+                  <input type="radio" name="audioSelect" value="../AUDIO/audio2.mp3">
+                  Action Rock
+              </label>
+  
+              <label>
+                  <input type="radio" name="audioSelect" value="../AUDIO/audio3.mp3">
+                  Neon Drive
+              </label>
+            </div>
+
+            <audio id="audioPlayer" class="audio" controls>
+                <source src="../AUDIO/audio1.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+
+            <p><strong>Duración total:</strong> <span id="duration">0:00</span></p>
+            <p><strong>Tiempo restante:</strong> <span id="remaining">0:00</span></p>
+            <p><strong>Fichero en reproducción:</strong> <span id="fileName">audio1.mp3</span></p>
+            <p><strong>Estado de la reproducción:</strong> <span id="status">Pausado</span></p>
+          </div>
+        </section>
+    </main>
+
+    <!-- Incluir Pie de Página -->
+    <div id="footer"></div>
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scripts externos -->
+    <script src="../JS/video.js"></script>
+    <script src="../JS/audio.js"></script>
+    <script src="../JS/scripts-sound-box.js"></script>
+
+    <!-- Cargar Encabezado y Pie de Página Dinámicamente -->
+    <script src="../JS/header.js"></script>
+    <script src="../JS/footer.js"></script>
+    <script src="../JS/sound-box.js"></script>
+
+    <!--Script del Mapa -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          var restaurantCoords = [39.51386065006829, -0.425216139489487];
+
+          var map = L.map('footer-map', {
+              center: restaurantCoords,
+              zoom: 15,
+              scrollWheelZoom: false
+          });
+
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          }).addTo(map);
+
+          L.marker(restaurantCoords).addTo(map)
+              .bindPopup("<b>Rock & Robobites</b><br>¡Ven a visitarnos!").openPopup();
+
+          setTimeout(() => { map.invalidateSize(); }, 500); // Asegurar que el mapa se ajuste correctamente
+      });
+    </script>
+</body>
+</html>

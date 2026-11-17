@@ -1,5 +1,3 @@
-# Rock-And-Robobites-Restaurant
-
 # Rock & RoboBites
 
 Rock & RoboBites es una aplicación web desarrollada para un restaurante ficticio que combina gastronomía, música y tecnología. La propuesta gira en torno a una experiencia futurista en la que los robots forman parte del restaurante, tanto en su ambientación como en las experiencias interactivas de la web.

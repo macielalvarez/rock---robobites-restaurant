@@ -5,22 +5,22 @@ Rock & RoboBites es una aplicación web desarrollada para un restaurante fictici
 El sitio reúne diferentes secciones para consultar el menú, descubrir eventos, realizar reservas y explorar dos experiencias de juego desarrolladas con tecnologías web.
 
 ## Funcionalidades
-#Página de inicio
-<img width="1878" height="2796" alt="image" src="https://github.com/user-attachments/assets/5165a002-595c-4918-825b-9f0d8b727fa7" />
+##Página de inicio
+<img width="1851" height="2796" alt="image" src="https://github.com/user-attachments/assets/2b64e58a-fb50-4ecc-af5a-af83c14e102d" />
 
-#Carta
+##Carta
 <img width="863" height="1312" alt="image" src="https://github.com/user-attachments/assets/26496220-a1db-4495-b00c-3b9591c58d23" />
 
-#Eventos
+##Eventos
 <img width="1177" height="1015" alt="image" src="https://github.com/user-attachments/assets/d38ec41e-4c29-4f0c-95f8-f5e321d8b643" />
 
-#Reservas
+##Reservas
 <img width="917" height="630" alt="image" src="https://github.com/user-attachments/assets/92e5f491-bc00-4724-94c8-ec8210bb3fc8" />
 
-#Juego 2D
+##Juego 2D
 <img width="1044" height="632" alt="image" src="https://github.com/user-attachments/assets/38a8e67a-bced-4e75-b15f-6df58a32fa9e" />
 
-#Juego 3D
+##Juego 3D
 <img width="1264" height="743" alt="image" src="https://github.com/user-attachments/assets/e40b96d8-01e9-412f-b043-3de87df0cdd7" />
 
 ### Página web
